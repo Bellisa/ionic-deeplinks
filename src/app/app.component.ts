@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { Deeplinks } from "@ionic-native/deeplinks";
+import { HomePage } from '../pages/home/home';
+import { AboutPage } from '../pages/about/about';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,6 +20,18 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+
+      this.deeplinks.route({
+        '/': HomePage,
+        '/about': AboutPage
+      }).subscribe( (match) => {
+        console.log('Sucesso ao linkar rota!');
+        console.log(JSON.stringify(match));
+      }, (noMatch) => {
+        console.log('Erro ao linkar rota');
+        console.log(JSON.stringify(noMatch));
+        
+      })
     });
   }
 }
