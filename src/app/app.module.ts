@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Deeplinks } from "@ionic-native/deeplinks";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   providers: [
     StatusBar,
+    Deeplinks,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
